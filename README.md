@@ -2,6 +2,7 @@
 
 ```bash
 brew tap jonimmswordpressdev/claude-dashboard
+brew trust jonimmswordpressdev/claude-dashboard
 brew install claude-dashboard
 brew services start claude-dashboard
 ```
