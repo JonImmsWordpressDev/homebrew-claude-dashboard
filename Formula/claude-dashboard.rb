@@ -1,8 +1,8 @@
 class ClaudeDashboard < Formula
   desc "Local dashboard for Claude Code: live sessions, transcripts, costs"
   homepage "https://github.com/JonImmsWordpressDev/claude-dashboard"
-  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "798b6a81db2ccdf98196c66b874da744fce09f7fcac0fa662ef31f95f1f00239"
+  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "e3de86fe6a1df28ccd66dd1efd991514e3d58d1902e9ad99fa6028967015e862"
   license "MIT"
 
   depends_on "node"
