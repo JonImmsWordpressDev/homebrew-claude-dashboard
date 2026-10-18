@@ -1,8 +1,8 @@
 class ClaudeDashboard < Formula
-  desc "Local dashboard for Claude Code: live sessions, transcripts, costs"
+  desc "Claude Mission Control: local dashboard for Claude Code sessions"
   homepage "https://github.com/JonImmsWordpressDev/claude-dashboard"
-  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.11.1.tar.gz"
-  sha256 "1cf32ce08f8a977b88c08e42aca28ef855a995d2a0bb33f7914c92e37b9a4e0c"
+  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "25a92ac9e646fc358edf72d445dc4723878738670d9b71bae30b51065bfd6641"
   license "MIT"
 
   depends_on "node"
@@ -13,6 +13,9 @@ class ClaudeDashboard < Formula
     (bin/"claude-dashboard").write <<~EOS
       #!/bin/bash
       export CLAUDE_DASH_CONFIG_DIR="${CLAUDE_DASH_CONFIG_DIR:-$HOME/.config/claude-dashboard}"
+      if [ "$1" = "statusline" ]; then
+        exec "#{Formula["node"].opt_bin}/node" "#{libexec}/bin/claude-dashboard.js" "$@"
+      fi
       exec "#{Formula["node"].opt_bin}/node" "#{libexec}/server.js" "$@"
     EOS
   end
@@ -29,6 +32,7 @@ class ClaudeDashboard < Formula
     pid = spawn({ "CLAUDE_DASH_PORT" => port.to_s }, bin/"claude-dashboard")
     sleep 5
     assert_match "ok", shell_output("curl -s http://127.0.0.1:#{port}/api/health")
+    assert_match "Opus", pipe_output("#{bin}/claude-dashboard statusline", '{"model":{"display_name":"Opus"}}')
   ensure
     Process.kill("TERM", pid)
   end
