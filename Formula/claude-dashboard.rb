@@ -1,8 +1,8 @@
 class ClaudeDashboard < Formula
   desc "Claude Mission Control: local dashboard for Claude Code sessions"
   homepage "https://github.com/JonImmsWordpressDev/claude-dashboard"
-  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.18.0.tar.gz"
-  sha256 "a488d5527796894661169087cdcc5db2b99a3a5a4bd681b33098b2e5d618ca98"
+  url "https://github.com/JonImmsWordpressDev/claude-dashboard/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "0f4f169b6a92dc5c3b982db4f9ecb189e9316a9c24e31daf1db905e793baff48"
   license "MIT"
 
   depends_on "node"
